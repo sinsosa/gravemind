@@ -1,0 +1,214 @@
+<!-- FULL donation.html with 50ms logo removal -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Donation Page - Gravemind Blue Theme</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      font-family: sans-serif;
+      background: #0a0f2c;
+      color: #ffffff;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    spline-viewer {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      width: 100vw;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      filter: saturate(1.1) brightness(1.1) contrast(1.05);
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    #nav-bar {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      background: rgba(5, 10, 30, 0.95);
+      padding: 12px 24px;
+      border-radius: 12px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 0 30px rgba(102, 170, 255, 0.4);
+      margin: 2rem auto;
+      max-width: fit-content;
+      z-index: 10;
+      position: relative;
+    }
+
+    .nav-button {
+      background: rgba(10, 20, 50, 0.85);
+      border: 2px solid #66aaff;
+      border-radius: 8px;
+      color: #66aaff;
+      font-size: 15px;
+      font-weight: bold;
+      padding: 10px 20px;
+      cursor: pointer;
+      text-decoration: none;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 0 12px rgba(102, 170, 255, 0.3);
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    }
+
+    .nav-button:hover {
+      background: rgba(102, 170, 255, 0.15);
+      color: #ffffff;
+      box-shadow: 0 0 18px rgba(102, 170, 255, 0.5);
+    }
+
+    .content-wrapper {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .content {
+      max-width: 1000px;
+      width: 100%;
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 8px #66aaff;
+      color: #cce6ff;
+    }
+
+    p {
+      text-align: center;
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 6px #99ccff;
+      color: #e0f0ff;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      color: #cce6ff;
+    }
+
+    ul {
+      margin-left: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    strong {
+      color: #c0c0c0;
+      display: block;
+      margin-top: 0.5rem;
+    }
+  </style>
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.14/build/spline-viewer.js"></script>
+</head>
+<body>
+  <spline-viewer url="https://prod.spline.design/ucoTkKARUZf1ac9c/scene.splinecode"></spline-viewer>
+  <div class="overlay"></div>
+
+  <nav id="nav-bar">
+    <a href="index.html" class="nav-button">← Back</a>
+    <a href="https://discord.gg/9D84KhfTu5" class="nav-button" target="_blank">Join Discord</a>
+  </nav>
+
+  <div class="content-wrapper">
+    <div class="content" role="main" aria-label="Donation Options">
+      <h1>Donation Tiers</h1>
+      <p>Your donations directly support the ongoing maintenance and enhancement of our servers, ensuring a better experience for everyone.</p>
+
+      <div>
+        <h2>Priority Queue</h2>
+        <ul>
+          <li>Priority Queue on Axios Sahrani</li>
+          <li>VIP Discord Role</li>
+        </ul>
+        <strong>$20 USD per month</strong>
+      </div>
+
+      <div>
+        <h2>Custom Clothing Retextures</h2>
+        <ul>
+          <li>Our Skin Artists will make sure you get the look you're looking for</li>
+          <li>VIP Discord Role</li>
+        </ul>
+        <strong>Name and Logo on a clothing item of your choice: $30 USD</strong>
+      </div>
+
+      <div>
+        <h2>Clan Outfit</h2>
+        <ul>
+          <li>x1 Helmet Retexture</li>
+          <li>x1 Top Retexture</li>
+          <li>x1 Pants Retexture</li>
+          <li>x1 Gloves Retexture</li>
+          <li>x1 Armor Retexture Plate Carrier (MVS, AVENGER OR MTV)</li>
+          <li>x1 Boots or Shoes Retexture</li>
+          <li>VIP Discord Role</li>
+        </ul>
+        <strong>$150 USD</strong>
+      </div>
+
+      <div>
+        <h2>Weapon Retextures</h2>
+        <ul>
+          <li>Custom Skin of your design</li>
+          <li>Stand out during firefights</li>
+          <li>VIP Discord Role</li>
+        </ul>
+        <strong>$50 USD per weapon</strong>
+      </div>
+
+      <div>
+        <h2>Custom Sleeping Bag Retextures</h2>
+        <ul>
+          <li>Stand out at your campsite or base</li>
+          <li>Blend in or make a statement with various themes</li>
+          <li>VIP Discord Role</li>
+        </ul>
+        <strong>$20 USD per sleeping bag</strong>
+      </div>
+
+      <div>
+        <h2>Custom Flags</h2>
+        <ul>
+          <li>Design your own unique flag</li>
+          <li>Perfect for marking your territory or decorating your base</li>
+          <li>VIP Discord Role</li>
+        </ul>
+        <strong>$10 USD per flag</strong>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const interval = setInterval(() => {
+      const viewer = document.querySelector('spline-viewer');
+      if (viewer && viewer.shadowRoot) {
+        const logo = viewer.shadowRoot.querySelector('#logo');
+        if (logo) {
+          logo.remove();
+          clearInterval(interval);
+        }
+      }
+    }, 50);
+  </script>
+</body>
+</html>
