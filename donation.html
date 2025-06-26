@@ -1,124 +1,106 @@
-<!-- FULL donation.html with 50ms logo removal -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gravemind</title>
+  <title>Gravemind VIP Perks</title>
   <style>
     html, body {
-      margin: 0;
-      padding: 0;
-      min-height: 100%;
-      font-family: sans-serif;
-      background: #0a0f2c;
-      color: #ffffff;
+      margin: 0; padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0b0f1e; color: #fff;
       overflow-x: hidden;
-      overflow-y: auto;
     }
 
     spline-viewer {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      width: 100vw;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
+      position: fixed; top:0; left:0; right:0; bottom:0;
+      width:100vw; height:100%;
+      z-index:0; pointer-events:none;
       filter: saturate(1.1) brightness(1.1) contrast(1.05);
     }
-
     .overlay {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: 1;
-      pointer-events: none;
+      position: fixed; top:0; left:0; right:0; bottom:0;
+      background: rgba(0,0,0,0.5);
+      z-index:1; pointer-events:none;
     }
 
     #nav-bar {
-      display: flex;
-      justify-content: center;
-      gap: 3rem;
-      background: rgba(5, 10, 30, 0.95);
-      padding: 12px 24px;
-      border-radius: 12px;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 0 30px rgba(102, 170, 255, 0.4);
-      margin: 2rem auto;
-      max-width: fit-content;
-      z-index: 10;
-      position: relative;
+      display:flex; justify-content:center; gap:2rem;
+      background:rgba(20,30,60,0.95); padding:14px 24px;
+      border-radius:12px; margin:2rem auto; max-width:fit-content;
+      z-index:2; position:relative;
+      box-shadow:0 0 20px rgba(180,220,255,0.25);
     }
-
     .nav-button {
-      background: rgba(10, 20, 50, 0.85);
-      border: 2px solid #66aaff;
-      border-radius: 8px;
-      color: #66aaff;
-      font-size: 15px;
-      font-weight: bold;
-      padding: 10px 20px;
-      cursor: pointer;
-      text-decoration: none;
-      backdrop-filter: blur(6px);
-      box-shadow: 0 0 12px rgba(102, 170, 255, 0.3);
-      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      background:rgba(40,60,100,0.8);
+      border:1px solid #99ccff; border-radius:8px;
+      color:#99ccff; font-weight:bold;
+      padding:10px 20px; text-decoration:none;
+      transition:all .3s ease;
     }
-
     .nav-button:hover {
-      background: rgba(102, 170, 255, 0.15);
-      color: #ffffff;
-      box-shadow: 0 0 18px rgba(102, 170, 255, 0.5);
+      background:rgba(150,200,255,0.2); color:#fff;
     }
 
-    .content-wrapper {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      justify-content: center;
-      padding: 2rem;
+    .container {
+      position:relative; z-index:2;
+      max-width:1200px; margin:0 auto; padding:2rem;
     }
-
-    .content {
-      max-width: 1000px;
-      width: 100%;
-      padding: 2rem;
-    }
-
     h1 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      text-shadow: 0 0 8px #66aaff;
-      color: #cce6ff;
+      text-align:center; font-size:3rem;
+      color:#e0e8ff; margin-bottom:1rem;
+      text-shadow:0 0 8px #66aaff;
     }
 
-    p {
-      text-align: center;
-      font-size: 1.25rem;
-      margin-bottom: 2rem;
-      text-shadow: 0 0 6px #99ccff;
-      color: #e0f0ff;
+    .notice {
+      max-width:800px; margin:.5rem auto;
+      padding:10px; border:1px solid #66aaff;
+      border-radius:8px; text-align:center;
+      color:#a0cfff; background:rgba(20,30,60,0.4);
     }
 
-    h2 {
-      font-size: 1.5rem;
-      margin-top: 2rem;
-      color: #cce6ff;
+    /* 3-column fixed grid */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 260px;
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+    /* Force the 10th card into column 2 (middle) */
+    .card-grid .card:nth-child(10) {
+      grid-column: 2;
     }
 
-    ul {
-      margin-left: 1.5rem;
-      margin-bottom: 0.5rem;
+    .card {
+      position:relative;
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(200,220,255,0.1);
+      backdrop-filter:blur(8px);
+      border-radius:16px;
+      box-shadow:0 0 20px rgba(100,200,255,0.1);
+      display:flex; flex-direction:column;
+      padding:1.5rem; overflow:hidden;
     }
-
-    strong {
-      color: #c0c0c0;
-      display: block;
-      margin-top: 0.5rem;
+    .card h2 {
+      margin:0 0 .5rem;
+      font-size:1.5rem; color:#d0eaff;
+    }
+    .card ul {
+      padding-left:1.2rem; margin:0; flex:1; overflow:auto;
+    }
+    .card li {
+      margin-bottom:.4rem;
+    }
+    .price {
+      position:absolute; bottom:10px; right:10px;
+      font-weight:bold; color:#fff;
+      background:rgba(102,170,255,0.2);
+      padding:6px 12px; border-radius:8px;
     }
   </style>
-  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.14/build/spline-viewer.js"></script>
+  <script type="module"
+    src="https://unpkg.com/@splinetool/viewer@1.10.14/build/spline-viewer.js"></script>
 </head>
 <body>
   <spline-viewer url="https://prod.spline.design/ucoTkKARUZf1ac9c/scene.splinecode"></spline-viewer>
@@ -129,76 +111,93 @@
     <a href="https://discord.gg/9D84KhfTu5" class="nav-button" target="_blank">Join Discord</a>
   </nav>
 
-  <div class="content-wrapper">
-    <div class="content" role="main" aria-label="Donation Options">
-      <h1>Donation Tiers</h1>
-      <p>Your donations directly support the ongoing maintenance and enhancement of our servers, ensuring a better experience for everyone.</p>
+  <div class="container">
+    <h1>Gravemind VIP Tiers</h1>
+    <p class="notice">To place an order, please open a purchase ticket in our Discord.</p>
+    <p class="notice">After your first purchase, you will receive the VIP Discord Role automatically.</p>
 
-      <div>
-        <h2>Priority Queue</h2>
-        <ul>
-          <li>Priority Queue on Axios Sahrani</li>
-          <li>VIP Discord Role</li>
-        </ul>
-        <strong>$20 USD per month</strong>
+    <div class="card-grid">
+      <div class="card">
+        <h2>🎟️ Priority Queue</h2>
+        <ul><li>Skip the server queue</li></ul>
+        <div class="price">$20/month</div>
       </div>
-
-      <div>
-        <h2>Custom Clothing Retextures</h2>
+      <div class="card">
+        <h2>👕 Custom Clothing</h2>
         <ul>
-          <li>Our Skin Artists will make sure you get the look you're looking for</li>
-          <li>VIP Discord Role</li>
+          <li>Name &amp; Logo on one clothing item</li>
+          <li>Designed by our skin artists</li>
         </ul>
-        <strong>Name and Logo on a clothing item of your choice: $30 USD</strong>
+        <div class="price">$30/item</div>
       </div>
-
-      <div>
-        <h2>Clan Outfit</h2>
+      <div class="card">
+        <h2>🛡️ Clan Outfit</h2>
         <ul>
-          <li>x1 Helmet Retexture</li>
-          <li>x1 Top Retexture</li>
-          <li>x1 Pants Retexture</li>
-          <li>x1 Gloves Retexture</li>
-          <li>x1 Armor Retexture Plate Carrier (MVS, AVENGER OR MTV)</li>
-          <li>x1 Boots or Shoes Retexture</li>
-          <li>VIP Discord Role</li>
+          <li>Helmet, Top, Pants, Gloves</li>
+          <li>Plate Carrier (Any Paragon or Vanilla)</li>
+          <li>Boots or Shoes</li>
         </ul>
-        <strong>$150 USD</strong>
+        <div class="price">$150</div>
       </div>
-
-      <div>
-        <h2>Weapon Retextures</h2>
+      <div class="card">
+        <h2>🔫 Weapon Retextures</h2>
         <ul>
-          <li>Custom Skin of your design</li>
+          <li>Fully custom skin design</li>
           <li>Stand out during firefights</li>
-          <li>VIP Discord Role</li>
         </ul>
-        <strong>$50 USD per weapon</strong>
+        <div class="price">$50/weapon</div>
       </div>
-
-      <div>
-        <h2>Custom Sleeping Bag Retextures</h2>
+      <div class="card">
+        <h2>✨ Animated / Glowing Items</h2>
         <ul>
-          <li>Stand out at your campsite or base</li>
-          <li>Blend in or make a statement with various themes</li>
-          <li>VIP Discord Role</li>
+          <li>Apply glow or animation to any retexture</li>
+          <li>Enhance visibility or style with effects</li>
+          <li>Charged per item modified</li>
         </ul>
-        <strong>$20 USD per sleeping bag</strong>
+        <div class="price">+ $40/item</div>
       </div>
-
-      <div>
-        <h2>Custom Flags</h2>
+      <div class="card">
+        <h2>🛏️ Sleeping Bag</h2>
         <ul>
-          <li>Design your own unique flag</li>
-          <li>Perfect for marking your territory or decorating your base</li>
-          <li>VIP Discord Role</li>
+          <li>Choose from various custom themes</li>
+          <li>Blend in or stand out at your base</li>
         </ul>
-        <strong>$10 USD per flag</strong>
+        <div class="price">$20/bag</div>
+      </div>
+      <div class="card">
+        <h2>🚩 Custom Flag</h2>
+        <ul>
+          <li>Design your own base flag</li>
+          <li>Perfect for territory decoration</li>
+        </ul>
+        <div class="price">$10/flag</div>
+      </div>
+      <div class="card">
+        <h2>🚗 Custom Vehicles</h2>
+        <ul>
+          <li>Fully customized vehicle retextures</li>
+          <li>Make your rides stand out</li>
+        </ul>
+        <div class="price">Starting at $120</div>
+      </div>
+      <div class="card">
+        <h2>🚁 Custom Helicopters</h2>
+        <ul>
+          <li>Personalized helicopter liveries</li>
+          <li>Designed to your specifications</li>
+        </ul>
+        <div class="price">Starting at $150</div>
+      </div>
+      <div class="card">
+        <h2>🎨 BBP Murals</h2>
+        <ul><li>Base Building Plus mural textures</li></ul>
+        <div class="price">$15/mural</div>
       </div>
     </div>
   </div>
 
   <script>
+    // remove the spline logo every 10 ms
     const interval = setInterval(() => {
       const viewer = document.querySelector('spline-viewer');
       if (viewer && viewer.shadowRoot) {
@@ -208,7 +207,7 @@
           clearInterval(interval);
         }
       }
-    }, 50);
+    }, 10);
   </script>
 </body>
 </html>
