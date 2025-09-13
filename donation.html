@@ -3,25 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gravemind VIP Perks</title>
+  <title>Gravemind - Donations</title>
   <style>
     html, body {
       margin: 0; padding: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #0b0f1e; color: #fff;
+      background: #0a0f2c; color: #fff;
       overflow-x: hidden;
     }
-
     spline-viewer {
       position: fixed; top:0; left:0; right:0; bottom:0;
-      width:100vw; height:100%;
-      z-index:0; pointer-events:none;
+      width:100vw; height:100%; z-index:0; pointer-events:none;
       filter: saturate(1.1) brightness(1.1) contrast(1.05);
     }
     .overlay {
       position: fixed; top:0; left:0; right:0; bottom:0;
-      background: rgba(0,0,0,0.5);
-      z-index:1; pointer-events:none;
+      background: rgba(0,0,0,0.5); z-index:1; pointer-events:none;
     }
 
     #nav-bar {
@@ -33,8 +30,8 @@
     }
     .nav-button {
       background:rgba(40,60,100,0.8);
-      border:1px solid #99ccff; border-radius:8px;
-      color:#99ccff; font-weight:bold;
+      border:1px solid #66aaff; border-radius:8px;
+      color:#66aaff; font-weight:bold;
       padding:10px 20px; text-decoration:none;
       transition:all .3s ease;
     }
@@ -51,7 +48,6 @@
       color:#e0e8ff; margin-bottom:1rem;
       text-shadow:0 0 8px #66aaff;
     }
-
     .notice {
       max-width:800px; margin:.5rem auto;
       padding:10px; border:1px solid #66aaff;
@@ -59,19 +55,13 @@
       color:#a0cfff; background:rgba(20,30,60,0.4);
     }
 
-    /* 3-column fixed grid */
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3,1fr);
       grid-auto-rows: 260px;
       gap: 2rem;
       margin-top: 1.5rem;
     }
-    /* Force the 10th card into column 2 (middle) */
-    .card-grid .card:nth-child(10) {
-      grid-column: 2;
-    }
-
     .card {
       position:relative;
       background:rgba(255,255,255,0.05);
@@ -103,12 +93,15 @@
     src="https://unpkg.com/@splinetool/viewer@1.10.14/build/spline-viewer.js"></script>
 </head>
 <body>
+
   <spline-viewer url="https://prod.spline.design/ucoTkKARUZf1ac9c/scene.splinecode"></spline-viewer>
   <div class="overlay"></div>
 
   <nav id="nav-bar">
-    <a href="index.html" class="nav-button">← Back</a>
-    <a href="https://discord.gg/9D84KhfTu5" class="nav-button" target="_blank">Join Discord</a>
+    <a href="index.html" class="nav-button">Home</a>
+    <a href="donation.html" class="nav-button">Donate</a>
+    <a href="tos.html" class="nav-button">Terms</a>
+    <a href="https://discord.gg/9D84KhfTu5" target="_blank" class="nav-button">Discord</a>
   </nav>
 
   <div class="container">
@@ -197,15 +190,12 @@
   </div>
 
   <script>
-    // remove the spline logo every 10 ms
+    // remove spline logo
     const interval = setInterval(() => {
-      const viewer = document.querySelector('spline-viewer');
-      if (viewer && viewer.shadowRoot) {
-        const logo = viewer.shadowRoot.querySelector('#logo');
-        if (logo) {
-          logo.remove();
-          clearInterval(interval);
-        }
+      const v = document.querySelector('spline-viewer');
+      if (v && v.shadowRoot) {
+        const l = v.shadowRoot.querySelector('#logo');
+        if (l) { l.remove(); clearInterval(interval); }
       }
     }, 10);
   </script>
